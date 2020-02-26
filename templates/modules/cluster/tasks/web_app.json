@@ -1,0 +1,27 @@
+[
+    {
+        "name": "static-website",
+        "image": "efog/static-nginx-website-demo",
+        "cpu": 512,
+        "memory": 1024,
+        "memoryReservation": 1024,
+        "essential": true,
+        "volumes": [],
+        "portMappings": [
+            {
+                "containerPort": 80,
+                "hostPort": 80
+            }
+        ],
+        "healthCheck": {
+            "retries": 5,
+            "command": [
+                "CMD-SHELL",
+                "touch ~ || exit 1"
+            ],
+            "timeout": 10,
+            "interval": 60,
+            "startPeriod": 20
+        }
+    }
+]
